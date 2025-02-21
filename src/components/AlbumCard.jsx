@@ -18,17 +18,21 @@ const AlbumCard = ({ singleSong }) => {
   };
 
   return (
-    <div className="col text-center position-relative" onClick={handleSongClick}>
+    <div className="col text-center " onClick={handleSongClick}>
       <div className="card-content position-relative">
         <img className="img-fluid" src={singleSong.album.cover_medium} alt="track" />
         <p>
-          Track: {singleSong.title}
+          Track: {singleSong.title_short}
           <br />
           Artist: {singleSong.artist.name}
         </p>
 
-        <button onClick={handleFavorite} className="btn btn-link position-absolute top-0 end-0 m-2">
-          {isFavorited ? <HeartFill color="green" size={24} /> : <Heart color="gray" size={24} />}
+        <button onClick={handleFavorite} className="btn btn-link position-absolute top-0 end-0 m-1">
+          {isFavorited ? (
+            <HeartFill color="green" width={30} height={30} />
+          ) : (
+            <Heart color="gray" width={30} height={30} />
+          )}
         </button>
       </div>
     </div>

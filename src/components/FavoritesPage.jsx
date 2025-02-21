@@ -6,7 +6,7 @@ const FavoriteSongsPage = () => {
   const favoritedSongs = useSelector((state) => state.album.favoritedSongs);
 
   return (
-    <div className="container col py-4 text-white">
+    <div className="container col py-4 text-white mb-5">
       <h2>Le tue canzoni preferite</h2>
       <div className="row py-3">
         {favoritedSongs.length > 0 ? (
