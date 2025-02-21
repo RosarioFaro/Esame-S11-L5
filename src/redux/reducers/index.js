@@ -1,5 +1,7 @@
 const initialState = {
   albums: {},
+  artistSongs: {},
+  selectedSong: null,
 };
 
 const albumReducer = (state = initialState, action) => {
@@ -11,6 +13,11 @@ const albumReducer = (state = initialState, action) => {
           ...state.albums,
           [action.payload.artistName]: action.payload.data,
         },
+      };
+    case "SET_CURRENT_SONG":
+      return {
+        ...state,
+        selectedSong: action.payload,
       };
     default:
       return state;
