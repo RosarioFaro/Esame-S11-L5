@@ -4,6 +4,7 @@ import { setArtistSongs } from "../redux/actions";
 import { HouseDoorFill, BookFill } from "react-bootstrap-icons";
 import { Navbar, Nav, Form, Button } from "react-bootstrap";
 import iconLogo from "../assets/logo.png";
+import { Link } from "react-router";
 
 const Sidebar = () => {
   const [search, setSearch] = useState("");
@@ -30,16 +31,16 @@ const Sidebar = () => {
   return (
     <aside className="col col-2">
       <Navbar expand="md" fixed="left" className="flex-column align-items-start" id="sidebar">
-        <Navbar.Brand href="index.html">
+        <Navbar.Brand as={Link} to="/">
           <img src={iconLogo} alt="Spotify Logo" width="131" height="40" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarNavAltMarkup" />
         <Navbar.Collapse id="navbarNavAltMarkup">
           <Nav className="flex-column mb-auto">
-            <Nav.Link href="#" className="d-flex align-items-center">
+            <Nav.Link as={Link} to="/" className="d-flex align-items-center">
               <HouseDoorFill className="me-2" /> Home
             </Nav.Link>
-            <Nav.Link href="#" className="d-flex align-items-center">
+            <Nav.Link as={Link} to="/preferiti" className="d-flex align-items-center">
               <BookFill className="me-2" /> Your Library
             </Nav.Link>
             <Form className="mt-3" onSubmit={handleSearch}>
@@ -57,7 +58,7 @@ const Sidebar = () => {
             </Form>
           </Nav>
         </Navbar.Collapse>
-        <div className="nav-btn d-flex flex-column ">
+        <div className="nav-btn d-flex flex-column mx-auto">
           <Button variant="primary" className="signup-btn">
             Sign Up
           </Button>
