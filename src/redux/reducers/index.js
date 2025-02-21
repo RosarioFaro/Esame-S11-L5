@@ -32,14 +32,13 @@ const albumReducer = (state = initialState, action) => {
       };
 
     case "TOGGLE_FAVORITE_SONG": {
-      const song = action.payload;
-      const isFavorited = state.favoritedSongs.some((fav) => fav.id === song.id);
+      const isFavorited = state.favoritedSongs.some((fav) => fav.id === action.payload.id);
 
       return {
         ...state,
         favoritedSongs: isFavorited
-          ? state.favoritedSongs.filter((fav) => fav.id !== song.id)
-          : [...state.favoritedSongs, song],
+          ? state.favoritedSongs.filter((fav) => fav.id !== action.payload.id)
+          : [...state.favoritedSongs, action.payload],
       };
     }
 
