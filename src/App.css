@@ -170,3 +170,10 @@ ul {
 .mainPage img {
   width: 200px;
 }
+
+.albumPlayer h5 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
