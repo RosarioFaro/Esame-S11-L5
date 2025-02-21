@@ -27,9 +27,14 @@ const MusicList = ({ artistName }) => {
   }, [dispatch, artistName]);
 
   return (
-    <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
-      {Array.isArray(albums) && albums.map((album) => <AlbumCard key={album.id} singleSong={album} />)}
-    </div>
+    <>
+      <h2 className="text-capitalize">{artistName}</h2>
+      <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
+        {albums.map((album) => (
+          <AlbumCard key={album.id} singleSong={album} />
+        ))}
+      </div>
+    </>
   );
 };
 
