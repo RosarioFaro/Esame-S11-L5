@@ -50,7 +50,7 @@ const Player = () => {
                   <img src={repeatIcon} alt="repeat" />
                 </a>
               </div>
-              <ProgressBar now={50} className="mt-3" />
+              <ProgressBar className="mt-3" />
             </div>
           </div>
         </div>

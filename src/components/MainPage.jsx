@@ -1,3 +1,4 @@
+import ArtistSongs from "./ArtistSongs";
 import MusicList from "./MusicList";
 
 const MainPage = () => {
@@ -10,6 +11,13 @@ const MainPage = () => {
           <a href="#">MOODS AND GENRES</a>
           <a href="#">NEW RELEASES</a>
           <a href="#">DISCOVER</a>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-10">
+          <div id="rock">
+            <ArtistSongs />
+          </div>
         </div>
       </div>
       <div className="row">

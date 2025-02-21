@@ -1,21 +1,30 @@
-import { useDispatch } from "react-redux";
-import { setCurrentSong } from "../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleFavoriteSong } from "../redux/actions";
+import { HeartFill, Heart } from "react-bootstrap-icons";
 
 const AlbumCard = ({ singleSong }) => {
   const dispatch = useDispatch();
+  const favoritedSongs = useSelector((state) => state.album.favoritedSongs);
 
-  const handleClick = () => {
-    dispatch(setCurrentSong(singleSong));
+  const isFavorited = favoritedSongs.some((song) => song.id === singleSong.id);
+
+  const handleFavorite = () => {
+    dispatch(toggleFavoriteSong(singleSong));
   };
 
   return (
-    <div className="col text-center" onClick={handleClick} style={{ cursor: "pointer" }}>
-      <img className="img-fluid" src={singleSong.album.cover_medium} alt="album cover" />
+    <div className="col text-center position-relative">
+      <img className="img-fluid" src={singleSong.album.cover_medium} alt="track" />
+
       <p>
         Track: {singleSong.title}
         <br />
         Artist: {singleSong.artist.name}
       </p>
+
+      <button onClick={handleFavorite} className="btn btn-link position-absolute top-0 end-0 m-2">
+        {isFavorited ? <HeartFill color="green" size={24} /> : <Heart color="gray" size={24} />}
+      </button>
     </div>
   );
 };
